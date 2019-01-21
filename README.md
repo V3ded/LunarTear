@@ -1,6 +1,5 @@
 # Lunar Tear
 
-***
 
 ## Information:
 <b>Tool name:</b><i>Lunar Tear</i><br>
