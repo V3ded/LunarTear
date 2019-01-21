@@ -40,3 +40,5 @@ LunarTear is a UDP/TCP SYN stresser
 Mandatory or optional arguments to long options are also mandatory or optional
 for any corresponding short options.
 ```
+<br>
+<h1> DISCLAIMER: USE AT YOUR OWN RISK. I'M NOT RESPONSIBLE FOR ANY MESS YOU CAUSE WHEN USING THIS TOOL!</h1>
