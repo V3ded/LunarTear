@@ -3,13 +3,13 @@
 ***
 
 ## Information:
-<b>Tool name:</b><i>Lunar Tear</i>
-<b>Version:</b> 2.0
-<b>Author:</b> <i>@V3ded</i>
-<b>Summary:</b>A multi-threaded <i>TCP SYN </i>/<i>UDP</i> stresser
+<b>Tool name:</b><i>Lunar Tear</i><br>
+<b>Version:</b> 2.0 <br>
+<b>Author:</b> <i>@V3ded</i><br>
+<b>Summary:</b>A multi-threaded <i>TCP SYN </i>/<i>UDP</i> stresser<br>
 
 ## Installation:
-`apt-get install gcc` 
+`apt-get install gcc`<br> 
 `gcc LunarTear.c -o LunarTear -pthread -lm`
 
 ## Usage:
