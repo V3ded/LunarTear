@@ -1,0 +1,85 @@
+================ Changelog for LunarTear (by V3ded) ====================
+  _____                               _______                   
+ |     |_.--.--.-----.---.-.----.    |_     _|.-----.---.-.----.
+ |       |  |  |     |  _  |   _|      |   |  |  -__|  _  |   _|
+ |_______|_____|__|__|___._|__|        |___|  |_____|___._|__|  
+                                                                
+                                  .--/--.--___
+                               .-:. . ........o
+               ..-::-.       ./-.  -.       ..+ 
+              -:   ..-..    -.   . .         ./ 
+              //.. .. .-.. /./.....         -- 
+             -::      .--:.+.s-- :o      --.-
+             :/.      .s--.:-+: -o:    -///
+              :/.     .o::s:::.---  ..:///::::::///:--..   
+               ./-.   -+-ss+:-:/..--..   ......----.---. 
+           /:-.-------/o.:o+/:oo...--.           .----... 
+          +:-.........--.ooso:+---..            .-.  
+      .:--... .--.......-s//-.--.             .-- 
+     .--.....       ..---//-:---..          ----....   
+    /:-.           .-. .--..  --.......-...::-
+   -::.         ..::  ./..    .:-.-..//
+  .--...........-.--  .-       .: ...//
+  :-...........   --  .         /://+//
+  .                /. -        .:.-/:-   :::     :::  ::::::::
+                   ./...      .:         :+:     :+: :+:    :+:
+                    .:.-.   .-.          +:+     +:+        +:+
+                     ---:   /            +#+     +:+     +#++:
+                      :/-.--              +#+   +#+         +#+
+                        -:.--              #+#+#+#   #+#    #+#
+                          --:.               ###      ########
+======================================================================
+
+Version 1.0 (first commit):
+    - First prototype, only single threaded and supported only basic TCP packet sending
+
+Version 1.1:
+    - Implemented posix pthreads, slowly started to move towards TCP SYN packets
+    - Set up a TCP structure to initialize SYN packets
+    
+Version 1.2:
+    - Implemented Getopt() to parse useroptions from a commandline
+    - Implemented a TOptions struct which allows for custom user options (verbose, target to flood, port, thread amount)
+    - Replaced all error printfs with fprintf(stderr, "")
+
+Version 1.3:
+    - Validating getopt input
+    - Fixing 2 segfaults if some options weren't supplied 
+    - Made a banner
+
+Version 1.4:
+    - Replaced getopt with argp (same user options under different names; --host, --port, --threads)
+    - Support for UDP flooding
+    - Refactoring of code (fixing memory 2 memory leaks and 1 unchecked malloc)
+
+Version 1.5:
+    - Separated AllHeaderInit() function into TCPHeaderInit(), UDPHeaderInit(), HeaderInit() 
+    - Fixing a bug where LunarTear would crash if both --tcp and --udp options were set
+
+Version 1.6:
+    - Added bitflags to flag variables in TOptions struct (saves space)
+    - Now supports hostnames as flooding input
+    - Added an interrupt handler (catches CTRL+C and displays a goodbye message)
+
+Version 1.7:
+    - Replaced the old banner with a new one (Thanks PD!)
+    - Replaced the old verbose variable and its relating if checks with 3 macros - verbose(), verbosea(), verboseva()
+    - Got rid of pointer to a pointer mess to update pointer structs in functions 
+    - typedef'ed a lot of default structures 
+    - Implemented --spoof-ip and --spoof-port option
+    - Removed hardcoded default source IP and source port using 2 new rand funcs - RandPort() and RandIP() if the 2 above mentioned options aren't supplied
+
+Version 1.8: 
+    - Implemented --amount option
+    - Colored messages
+    - Fixed an issue where hostname (max size 128) got copied into an IP char array (size 64) which would case a buffer overflow & crash LunarTear
+    - To make the code nicer and reduce code reuse the flooding function now floods until the counter (long i) reaches LONG_MAX (Should be forever until this counter is reached...) 
+
+Version 1.9:
+    - Improved the counter for the --amount option
+    - A lot if tiny refactors not worth mentioning
+
+Version 2.0:
+    - Removed unecessary comments from the code
+    - Last minimal refactoring
+    - Code published!
