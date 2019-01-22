@@ -141,7 +141,7 @@ unsigned short csum (unsigned short *buf, int nwords) {
     sum = (sum >> 16) + (sum & 0xffff);
     sum += (sum >> 16);
 
-	return ~sum;
+    return ~sum;
 }
 
 
@@ -222,7 +222,7 @@ error_t ParseOptions(int key, char *arg, argp_state *state) {
 
     TOptions *args = state->input;
 
-    switch(key) {    
+    switch(key) {
         case 'h':   strncpy(tHost ,arg, MAX_HOSTNAME_SIZE -1);
                     if(HostToIP(tHost, tIP, 49)) {
                         args->hFlag = 1; 
@@ -233,19 +233,19 @@ error_t ParseOptions(int key, char *arg, argp_state *state) {
                     break;
 
         case 'p':   tPort = atoi(arg);
-					if(tPort < 1 || tPort > 65535) 
+		    if(tPort < 1 || tPort > 65535) 
                         fprintf(stderr, RED "Port needs to be a number between 1 and 65535!\n" RESET);
-					else {
-						args->pFlag = 1;
+		    else {
+			args->pFlag = 1;
                         args->PORT = tPort;
                     } 
                     break;
         
-        case 't':   tThread = atoi(arg);
+	case 't':   tThread = atoi(arg);
                     if(tThread < 1 || tThread > THREAD_LIMIT) 
                         fprintf(stderr,RED "Thread count needs to be a number between 1 and %d!\n" RESET, THREAD_LIMIT);
-					else {
-						args->tFlag = 1; 
+		    else {
+			args->tFlag = 1; 
                         args->THREAD_COUNT = tThread;
                     }
                     break;
@@ -319,10 +319,10 @@ int CheckOptions(TOptions *userOptions) {
     if(((userOptions)->hFlag && (userOptions)->pFlag && (userOptions)->tFlag) && ((userOptions)->tcpFlag || (userOptions)->udpFlag)) {
         status = 1;
 
-	if(userOptions->asIFlag && !userOptions->sIFlag)  
+    if(userOptions->asIFlag && !userOptions->sIFlag)  
             status = 0;
         
-	if(userOptions->asPFlag && !userOptions->sPFlag) 
+     if(userOptions->asPFlag && !userOptions->sPFlag) 
             status = 0;
             
      if(userOptions->aPaFlag && !userOptions->PaFlag) 
