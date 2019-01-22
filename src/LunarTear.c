@@ -141,7 +141,7 @@ unsigned short csum (unsigned short *buf, int nwords) {
     sum = (sum >> 16) + (sum & 0xffff);
     sum += (sum >> 16);
 
-return ~sum;
+	return ~sum;
 }
 
 
@@ -319,13 +319,13 @@ int CheckOptions(TOptions *userOptions) {
     if(((userOptions)->hFlag && (userOptions)->pFlag && (userOptions)->tFlag) && ((userOptions)->tcpFlag || (userOptions)->udpFlag)) {
         status = 1;
 
-       if(userOptions->asIFlag && !userOptions->sIFlag)  
+	if(userOptions->asIFlag && !userOptions->sIFlag)  
             status = 0;
         
-        if(userOptions->asPFlag && !userOptions->sPFlag) 
+	if(userOptions->asPFlag && !userOptions->sPFlag) 
             status = 0;
             
-        if(userOptions->aPaFlag && !userOptions->PaFlag) 
+     if(userOptions->aPaFlag && !userOptions->PaFlag) 
             status = 0;
     }
 
@@ -404,8 +404,8 @@ void Inform(int spoofPort) {
     printf("*---------------- STARTING THE FLOOD IN 2 SECONDS ------------------*\n");
     printf("*------------- HIDDEN OUTPUT UNLESS \"--verbose\" is set -------------*\n\n");
     sleep(2);
-
 }
+
 char datagram[4096];
 void IPHeaderInit(TOptions *options, TAttack *attack) { 
     
