@@ -149,7 +149,7 @@ void INTHandler(int sig) {
     char *estregg[] = {"\n\t\t   Thank you for using LunarTear!\n", "\n\t\t\tRare pupper.\n"};
 
     signal(sig, SIG_IGN);
-    printf(((rand() % 100) > 2) ? estregg[0] : estregg[1]);
+    printf("%s", ((rand() % 100) > 2) ? estregg[0] : estregg[1]);
     exit(-1);
 }
 
