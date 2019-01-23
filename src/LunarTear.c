@@ -282,10 +282,10 @@ error_t ParseOptions(int key, char *arg, argp_state *state) {
         //Spoof source PORT
         case 778:   tsPort = atoi(arg);
                     args->asPFlag = 1;
-					if(tsPort < 1 || tsPort > 65535) 
+		    if(tsPort < 1 || tsPort > 65535) 
                         fprintf(stderr, RED "Spoof port needs to be a number between 1 and 65535!\n" RESET);
-					else {
-						args->sPFlag = 1;
+		    else {
+		        args->sPFlag = 1;
                         args->sPORT = tsPort;
                     } 
                     break;
@@ -293,10 +293,10 @@ error_t ParseOptions(int key, char *arg, argp_state *state) {
         //Packet amount
         case 779:   tPACKET_AMOUNT = atoi(arg);
                     args->aPaFlag = 1;
-					if(tPACKET_AMOUNT < 1 || tPACKET_AMOUNT > LONG_MAX) 
+		    if(tPACKET_AMOUNT < 1 || tPACKET_AMOUNT > LONG_MAX) 
                         fprintf(stderr, RED "Amount of packets to be sent needs to be bigger than 0 AND smaller than %ld!\n" RESET, LONG_MAX);
-					else {
-						args->PaFlag = 1;
+		    else {
+		        args->PaFlag = 1;
                         args->PACKET_AMOUNT = tPACKET_AMOUNT;
                     } 
                     break;
@@ -319,13 +319,13 @@ int CheckOptions(TOptions *userOptions) {
     if(((userOptions)->hFlag && (userOptions)->pFlag && (userOptions)->tFlag) && ((userOptions)->tcpFlag || (userOptions)->udpFlag)) {
         status = 1;
 
-    if(userOptions->asIFlag && !userOptions->sIFlag)  
+        if(userOptions->asIFlag && !userOptions->sIFlag)  
             status = 0;
         
-     if(userOptions->asPFlag && !userOptions->sPFlag) 
+        if(userOptions->asPFlag && !userOptions->sPFlag) 
             status = 0;
             
-     if(userOptions->aPaFlag && !userOptions->PaFlag) 
+        if(userOptions->aPaFlag && !userOptions->PaFlag) 
             status = 0;
     }
 
